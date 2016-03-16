@@ -1,4 +1,4 @@
-var expect = require('chai').expect;
+var assert = chai.assert;
 
   var assert = require('assert');
   describe('Regex', function() {

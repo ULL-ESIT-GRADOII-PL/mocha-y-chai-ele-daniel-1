@@ -2,15 +2,17 @@
 
 // require("../assets/js/temperatura").Celsius;
 
-// var assert = require('assert');
+var assert = chai.assert;
+
 describe('Regex', function() {
     describe('Celsius', function () {
         it('should match any substring of "Celsius"', function () {
-            var medida = Celsius(0);
-            assert.equal(true, medida.check("Celsius"));
-            assert.equal(true, medida.check("Celsi"));
-            assert.equal(true, medida.check("Cel"));
-            assert.equal(true, medida.check("C"));
+            var medida = new Celsius();
+            assert.notEqual(false, medida.check("Celsius"));
+            assert.notEqual(false, medida.check("Celsi"));
+            assert.notEqual(false, medida.check("Cel"));
+            assert.notEqual(false, medida.check("C"));
         });
+        
     });
 });
