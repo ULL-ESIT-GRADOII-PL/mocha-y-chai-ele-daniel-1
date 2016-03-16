@@ -36,3 +36,36 @@ describe('Regex', function() {
         });
     });
 });
+
+describe('Conversions', function() {
+  describe('Celsius', function () {
+    var medida = new Celsius(0);
+    it('toFahrenheit"', function () {
+      assert.equal(32, medida.toFahrenheit(0) );
+    });
+
+    it('toKelvin"', function () {
+      assert.equal(273, medida.toKelvin(0) );
+    });
+  });
+  describe('Kelvin', function () {
+    var medida = new Kelvin(273);
+    it('toFahrenheit"', function () {
+      assert.equal(32, medida.toFahrenheit(273) );
+    });
+
+    it('toCelsius"', function () {
+      assert.equal(0, medida.toCelsius(273) );
+    });
+  });
+  describe('Fahrenheit', function () {
+    var medida = new Fahrenheit(32);
+    it('toCelsius"', function () {
+      assert.equal(0, medida.toCelsius(32) );
+    });
+
+    it('toKelvin"', function () {
+      assert.equal(273, medida.toKelvin(32) );
+    });
+  });
+});
