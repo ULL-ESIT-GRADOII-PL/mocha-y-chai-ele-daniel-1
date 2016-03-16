@@ -1,15 +1,14 @@
-# Práctica OOP en JS
+# Mocha y Chai
 
-Este repositorio aloja la práctica de conversión de tipos, realizada con html, css y javascript, usando POO y haciendo uso de la herencia en javascript.
-
+En esta práctica se usa mocha, chai para generar pruebas unit testing
 
 **Repositorio GitHuB**
 
-* [Repositorio](https://github.com/ULL-ESIT-GRADOII-PL/eliminacion-del-switch-ele-daniel-1)
+* [Repositorio](https://github.com/ULL-ESIT-GRADOII-PL/mocha-y-chai-ele-daniel-1)
 
 **Página de la práctica**
 
-* [Web](http://ull-esit-gradoii-pl.github.io/eliminacion-del-switch-ele-daniel-1/)
+* [Web](http://ull-esit-gradoii-pl.github.io/mocha-y-chai-ele-daniel-1/)
 
 **Páginas de los autores**
 
