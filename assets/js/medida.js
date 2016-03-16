@@ -12,7 +12,7 @@
             this.tipo  = m.measure;
         }
         else {
-            this.valor = valor;
+            this.valor = parseFloat(valor);
             this.tipo  = tipo;
         }
 
@@ -51,9 +51,8 @@
             try {
                 var source = new measures[tipo[0].toLowerCase()](numero);  // new Fahrenheit(32) //asumimos que la priemra letra es el tipo correcto
                 var target = "to"+measures[destino[0].toLowerCase()].name; // "toCelsius"
-                var checkTarget = new measures[destino[0].toLowerCase()](numero)
+                var checkTarget = new measures[destino[0].toLowerCase()](numero);
                 if(!source.check(tipo) || !checkTarget.check(destino)) {
-                  return "a";
                   throw "Error de tipos";
                 }
                 return source[target]().toFixed(2) + " "+target; // "0 Celsius"

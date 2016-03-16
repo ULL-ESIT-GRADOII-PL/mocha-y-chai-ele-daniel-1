@@ -64,8 +64,8 @@
           return tipo.match(/(k(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?)/i);
         },
 
-        toCelsius: function(value) {    //javascript no sabe sumar ._.
-            return ((this.valor) - -273);
+        toCelsius: function(value) {
+            return ((this.valor) + 273);
         },
 
         toFahrenheit: function(value) {
@@ -73,8 +73,6 @@
         }
     };
 
-    //Temperatura.prototype.medidas.c = this;
-    //Temperatura.prototype.medidas.f = this;
     exports.Temperatura = Temperatura;
     exports.Celsius = Celsius;
     exports.Fahrenheit = Fahrenheit;
