@@ -18,8 +18,8 @@
   },
     "homepage": "https://ULL-ESIT-GRADOII-PL.github.com/eliminacion-del-switch-ele-daniel-1",
   "devDependencies": {
-    "chai":"*",
-    "mocha":"*"
-    "node-static": "*"
+    "chai": "*",
+    "mocha": "*",
+    "node-static" :"*"
   }
 }

@@ -1,7 +1,5 @@
 var expect = require('chai').expect;
 
-require("../assets/js/temperatura").Celsius;
-
   var assert = require('assert');
   describe('Regex', function() {
     describe('Celsius', function () {
