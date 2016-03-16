@@ -25,7 +25,7 @@
         },
 
         toKelvin: function() {
-          return this.valor - 273;
+          return this.valor + 273;
         }
     };
 
@@ -49,7 +49,7 @@
         },
 
         toKelvin: function() {
-          return this.toCelsius(this.valor) - 273;
+          return this.toCelsius(this.valor) + 273;
         }
     };
 
@@ -64,8 +64,12 @@
           return tipo.match(/(k(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?)/i);
         },
 
+        toKelvin: function() {
+            return this.valor;
+        },
+
         toCelsius: function() {
-            return ((this.valor) + 273);
+            return ((this.valor) - 273);
         },
 
         toFahrenheit: function() {

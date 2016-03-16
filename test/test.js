@@ -12,9 +12,9 @@ describe('Regex', function() {
             assert.notEqual(false, medida.check("cElSi"));
 
         });
-      });
+    });
 
-      describe('Kelvin', function () {
+    describe('Kelvin', function () {
         it('should match any substring of "Kelvin"', function () {
             medida = new Kelvin();
             assert.notEqual(false, medida.check("Kelvin"));
@@ -23,9 +23,9 @@ describe('Regex', function() {
             assert.notEqual(false, medida.check("k"));
             assert.notEqual(false, medida.check("kElVi"));
         });
-      });
+    });
 
-      describe('Fahrenheit', function () {
+    describe('Fahrenheit', function () {
         it('should match any substring of "Fahrenheit"', function () {
             medida = new Kelvin();
             assert.notEqual(false, medida.check("Kelvin"));
@@ -38,34 +38,34 @@ describe('Regex', function() {
 });
 
 describe('Conversions', function() {
-  describe('Celsius', function () {
-    var medida = new Celsius(0);
-    it('toFahrenheit"', function () {
-      assert.equal(32, medida.toFahrenheit(0) );
-    });
+    describe('Celsius', function () {
+        var medida = new Celsius(0);
+        it('toFahrenheit"', function () {
+            assert.equal(32, medida.toFahrenheit());
+        });
 
-    it('toKelvin"', function () {
-      assert.equal(273, medida.toKelvin(0) );
+        it('toKelvin"', function () {
+            assert.equal(273, medida.toKelvin());
+        });
     });
-  });
-  describe('Kelvin', function () {
-    var medida = new Kelvin(273);
-    it('toFahrenheit"', function () {
-      assert.equal(32, medida.toFahrenheit(273) );
-    });
+    describe('Kelvin', function () {
+        var medida = new Kelvin(273);
+        it('toFahrenheit"', function () {
+            assert.equal(32, medida.toFahrenheit());
+        });
 
-    it('toCelsius"', function () {
-      assert.equal(0, medida.toCelsius(273) );
+        it('toCelsius"', function () {
+            assert.equal(0, medida.toCelsius());
+        });
     });
-  });
-  describe('Fahrenheit', function () {
-    var medida = new Fahrenheit(32);
-    it('toCelsius"', function () {
-      assert.equal(0, medida.toCelsius(32) );
-    });
+    describe('Fahrenheit', function () {
+        var medida = new Fahrenheit(32);
+        it('toCelsius"', function () {
+            assert.equal(0, medida.toCelsius());
+        });
 
-    it('toKelvin"', function () {
-      assert.equal(273, medida.toKelvin(32) );
+        it('toKelvin"', function () {
+            assert.equal(273, medida.toKelvin());
+        });
     });
-  });
 });
