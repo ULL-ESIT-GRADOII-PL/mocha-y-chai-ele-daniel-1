@@ -19,14 +19,14 @@
     }
 
     Medida.match = function (input) {
-            var measures = '[a-z]';
+            var measures = '[a-z]+';
 
             var inputRegex = XRegExp(
-                '^(\\s*)                                            # whitespaces \n'
+                '^(\\s*)                                                  # whitespaces \n'
                     + '(?<value>       [-+]?\\d+ (?:[\\.,]\\d*)?\\s*)     # captures the number   \n'
                     + '((e(?<exponent> [-+]?\\d+)\\s*)?)                  # captures the exponent \n'
                     + '(?<tipo>       ' + measures + ')                   # Capture kind of value \n'
-                    + '((?:\\s+to)?\\s+ (?<destino>' + measures + '))?     # Get "to" syntax \n'
+                    + '((?:\\s+to)?\\s+ (?<destino>' + measures + '))?    # Get "to" syntax \n'
                     + '(\\s*)$                                            # whitespaces \n'
                 , 'xi');
 
@@ -40,16 +40,22 @@
 
         measures.c = Celsius;
         measures.f = Fahrenheit;
+        measures.k = Kelvin;
 
         var match = Medida.match(valor);
+
         if (match) {
             var numero = match.value,
-                tipo   = match.tipo,
+                tipo   =  match.tipo,
                 destino = match.destino;
-
             try {
-                var source = new measures[tipo](numero);  // new Fahrenheit(32)
-                var target = "to"+measures[destino].name; // "toCelsius"
+                var source = new measures[tipo[0].toLowerCase()](numero);  // new Fahrenheit(32) //asumimos que la priemra letra es el tipo correcto
+                var target = "to"+measures[destino[0].toLowerCase()].name; // "toCelsius"
+                var checkTarget = new measures[destino[0].toLowerCase()](numero)
+                if(!source.check(tipo) || !checkTarget.check(destino)) {
+                  return "a";
+                  throw "Error de tipos";
+                }
                 return source[target]().toFixed(2) + " "+target; // "0 Celsius"
             }
             catch(err) {
