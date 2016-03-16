@@ -51,7 +51,7 @@
             try {
                 var source = new measures[tipo[0].toLowerCase()](numero);  // new Fahrenheit(32) //asumimos que la priemra letra es el tipo correcto
                 var target = "to"+measures[destino[0].toLowerCase()].name; // "toCelsius"
-                var checkTarget = new measures[destino[0].toLowerCase()](numero);
+                var checkTarget = new measures[destino[0].toLowerCase()](0);
                 if(!source.check(tipo) || !checkTarget.check(destino)) {
                   throw "Error de tipos";
                 }

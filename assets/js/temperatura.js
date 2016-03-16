@@ -16,15 +16,15 @@
           return tipo.match(/(^c(?:e(?:l(?:s(?:i(?:u(?:s)?)?)?)?)?)?$)/i);
         },
 
-        toFahrenheit: function(value) {
+        toFahrenheit: function() {
             return ((this.valor * 9/5)+32);
         },
 
-        toCelsius: function(value) {
+        toCelsius: function() {
             return this.valor;
         },
 
-        toKelvin: function(value) {
+        toKelvin: function() {
           return this.valor - 273;
         }
     };
@@ -40,15 +40,15 @@
           return tipo.match(/(^f(?:a(?:h(?:r(?:e(?:n(?:h(?:e(?:i(?:t)?)?)?)?)?)?)?)?)?$)/i);
         },
 
-        toCelsius: function(value) {
+        toCelsius: function() {
             return ((this.valor - 32)*5/9);
         },
 
-        toFahrenheit: function(value) {
+        toFahrenheit: function() {
             return this.valor;
         },
 
-        toKelvin: function(value) {
+        toKelvin: function() {
           return this.toCelsius(this.valor) - 273;
         }
     };
@@ -64,11 +64,11 @@
           return tipo.match(/(k(?:e(?:l(?:v(?:i(?:n)?)?)?)?)?)/i);
         },
 
-        toCelsius: function(value) {
+        toCelsius: function() {
             return ((this.valor) + 273);
         },
 
-        toFahrenheit: function(value) {
+        toFahrenheit: function() {
             return ((this.toCelsius(this.valor) * 9/5)+32);
         }
     };
