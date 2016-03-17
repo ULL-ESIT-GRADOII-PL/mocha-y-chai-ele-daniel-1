@@ -2,20 +2,8 @@
     "use strict";
 
     function Medida(valor,tipo) {
-        if (!tipo) {
-            var param = XRegExp(""
-                                + "(?<value>       [-+]?\\d+ (?:[\\.,]\\d*)?\\s* ) # Get number \n"
-                                + "((e(?<exponent> [-+]?\\d+)\\s*)?)               # Get Exponent \n"
-                                + "(?<measure>     [a-zA-Z]+)                      # Get kind");
-            var m = XRegexExp.exec(valor, param);
-            this.valor = parseFloat(m.value) * Math.pow(10, parseInt(m.exponent));
-            this.tipo  = m.measure;
-        }
-        else {
-            this.valor = parseFloat(valor);
-            this.tipo  = tipo;
-        }
-
+        this.valor = parseFloat(valor);
+        this.tipo  = tipo;
     }
 
     Medida.match = function (input) {
