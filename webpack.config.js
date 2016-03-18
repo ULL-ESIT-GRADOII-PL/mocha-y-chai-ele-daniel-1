@@ -13,7 +13,7 @@ module.exports = {
 
       // Your app configuration
       entry: {
-          main: ['./assets/js/medida.js']
+          main: ['./assets/js/conversor.js']
       },
       output: {
           path: require("path").resolve('./vendor'),
