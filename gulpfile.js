@@ -1,23 +1,44 @@
 var gulp   = require('gulp');
-var uglify = require('gulp-uglify');
+var watch = require('gulp-watch');
+var htmlmin = require('gulp-htmlmin');
+var cleanCSS = require('gulp-clean-css');
+var webpack = require('webpack-stream');
 var del = require('del');
 
-
-gulp.task('compress', function() {
-    return gulp.src('assets/js/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('vendor'));
-});
-
+var paths = {
+  css: 'assets/css/*.css',
+  // html: '///*.html',
+  js: 'assets/js/*.js'
+};
 
 gulp.task('clean:minified', function () {
     return del([
-        'dist/report.csv',
-        // here we use a globbing pattern to match everything inside the `mobile` folder
-        'dist/mobile/**/*',
-        // we don't want to clean this file though so we negate the pattern
-        '!dist/mobile/deploy.json'
+        'vendor/*'
     ]);
 });
 
-gulp.task('default', ['clean:minified']);
+gulp.task('html-min', function () {
+  return gulp.src(paths.html)
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('./vendor'))
+})
+
+gulp.task('minify-css', function() {
+  return gulp.src('assets/css/*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('vendor'));
+});
+
+gulp.task('watch', function () {
+  gulp.watch(paths.css, ['minify-css']);
+  gulp.watch(paths.js, ['webpack']);
+  //gulp.watch(paths.html, ['html-min']);
+});
+
+gulp.task('webpack', function() {
+  return gulp.src(paths.js)
+    .pipe(webpack(require('./webpack.config.js')))
+    .pipe(gulp.dest('./vendor'));
+});
+
+gulp.task('default', ['watch']);

@@ -2,7 +2,14 @@
 
 En esta práctica se usa mocha, chai para generar pruebas unit testing
 
-En el [gulpfile](./gulpfile.js) se definen las tareas de compresion y minificacion de los archivos js.
+En el [gulpfile](./gulpfile.js) se definen tareas
+- de compresion
+- minificacion de los archivos js.
+- 'empaquetado' de modulos 'require' si fuese necesario
+- y la tarea para eliminar todos los archivos generados automáticamente
+
+Todo la salida que se produce termina en la carpeta vendor, y en assets se encuentran
+los archivos originales.
 
 En la siguiente página se encuentran las pruebas. [Tests Page](http://ull-esit-gradoii-pl.github.io/mocha-y-chai-ele-daniel-1/test/index.html)
 
